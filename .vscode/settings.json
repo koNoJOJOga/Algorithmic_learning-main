@@ -1,0 +1,16 @@
+{
+    "C_Cpp.default.compilerPath": "/usr/bin/clang++",
+    "files.associations": {
+        "ratio": "cpp",
+        "iostream": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "stack": "cpp",
+        "__split_buffer": "cpp",
+        "deque": "cpp",
+        "ostream": "cpp",
+        "set": "cpp",
+        "algorithm": "cpp",
+        "unordered_map": "cpp"
+    }
+}
