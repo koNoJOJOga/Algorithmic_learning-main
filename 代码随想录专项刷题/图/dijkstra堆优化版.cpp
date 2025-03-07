@@ -6,13 +6,6 @@
 using namespace std;
 using P = pair<int, int>;
 
-class mycomparison {
-public:
-    bool operator() (const P& lhs, const P& rhs) const {
-        return lhs.second > rhs.second;
-    }
-};
-
 struct Edge {
     int to, val;
     Edge(int t, int w) : to(t), val(w) {}
@@ -31,7 +24,12 @@ int main () {
     int end = n;
     vector<int> minDist(n + 1, INT_MAX);
     vector<bool> visited(n + 1, false);
-    priority_queue<P, vector<P>, mycomparison> pq;  // 这句话的原理是优先队列默认是大根堆，所以我们要自定义比较函数，使其变成小根堆
+    struct CompareP {
+        bool operator()(const P& lhs, const P& rhs) const {
+            return lhs.second > rhs.second;
+        }
+    };
+    priority_queue<P, vector<P>, CompareP> pq;  // 这句话的原理是优先队列默认是大根堆，所以我们要自定义比较函数，使其变成小根堆
     pq.push(P(start, 0));
     minDist[start] = 0;
     while (!pq.empty()) {
